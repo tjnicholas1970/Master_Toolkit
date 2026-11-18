@@ -6,7 +6,24 @@ Master Toolkit is a single `.bat` file that you run from a USB stick. It opens a
 
 > In production use, this cut Windows Update time per device from **4–5 hours to about 1 hour**. It also saved **about 30 minutes per machine** on Autopilot hashing and initial setup, at a volume of **30–40 devices a day**.
 
-<!-- Add screenshots here: docs/screenshots/home.png, oobe-prep.png, sccm-intune.png -->
+![Home tab](docs/screenshots/home.png)
+
+<details>
+<summary><b>More screenshots</b></summary>
+
+| Device Setup | Quick Checks |
+|---|---|
+| ![Device Setup](docs/screenshots/device-setup.png) | ![Quick Checks](docs/screenshots/quick-checks.png) |
+
+| Fixes | Network |
+|---|---|
+| ![Fixes](docs/screenshots/fixes.png) | ![Network](docs/screenshots/network.png) |
+
+| Users & Apps | |
+|---|---|
+| ![Users & Apps](docs/screenshots/users-apps.png) | |
+
+</details>
 
 ---
 
