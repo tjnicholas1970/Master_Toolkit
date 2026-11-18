@@ -1,0 +1,19 @@
+{
+  "_help": "Copy to Master_Toolkit_Settings.json next to the .bat. Keys starting with _ are ignored. Find winget app IDs with: winget search <name>",
+  "DefaultGroupTag": "",
+  "ComputerNamePrefix": "",
+  "TimeZone": "Central Standard Time",
+  "PowerPlan": "Balanced",
+  "SleepTimeoutACMinutes": 0,
+  "MonitorTimeoutACMinutes": 30,
+  "StandardApps": ["Google.Chrome", "7zip.7zip", "Adobe.Acrobat.Reader.64-bit"],
+  "NetworkTests": [
+    { "Name": "Entra ID sign-in",      "Host": "login.microsoftonline.com",          "Port": 443 },
+    { "Name": "Device registration",   "Host": "enterpriseregistration.windows.net", "Port": 443 },
+    { "Name": "Intune enrollment",     "Host": "enrollment.manage.microsoft.com",    "Port": 443 },
+    { "Name": "Windows Update",        "Host": "sls.update.microsoft.com",           "Port": 443 },
+    { "Name": "Outlook / Exchange",    "Host": "outlook.office365.com",              "Port": 443 },
+    { "Name": "Teams",                 "Host": "teams.microsoft.com",                "Port": 443 }
+  ],
+  "TicketSignature": ""
+}

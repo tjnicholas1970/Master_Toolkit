@@ -1,0 +1,11 @@
+# Device data the toolkit writes next to itself - never commit
+Autopilot/
+AutopilotDevices.csv
+ITToolkit_Output/
+Master_Toolkit_Settings.json
+BitLocker_*.txt
+*.log
+*.zip
+
+# Installers placed on the USB
+Dell/
