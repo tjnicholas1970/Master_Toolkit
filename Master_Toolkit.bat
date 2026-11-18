@@ -3,7 +3,7 @@
 color 0B
 title IT Toolkit - console output (leave open)
 echo ===================================================
-echo   Loading Enterprise IT Master Toolkit v4.1...
+echo   Loading Enterprise IT Master Toolkit v4.1.1...
 echo   Bypassing Execution Policy Silently...
 echo ===================================================
 echo.
@@ -298,7 +298,8 @@ function New-ITToolkitDialogButton {
         normal  = [System.Drawing.Color]::FromArgb(48, 48, 54)
     }
     $b = New-Object System.Windows.Forms.Button
-    $b.Text = $Text
+    $b.Text = $Text
+    $b.UseMnemonic = $false
     $b.Location = New-Object System.Drawing.Point($X, $Y)
     $b.Size = New-Object System.Drawing.Size($W, 32)
     $b.BackColor = $colors[$Style]
@@ -5436,7 +5437,8 @@ $Script:Tips.ReshowDelay = 150
 function New-ToolButton {
     param($Parent, [string]$Text, [int]$X, [int]$Y, [int]$W, [int]$H, [scriptblock]$Action, [string]$Style = 'normal', [string]$Tip = '', [switch]$Bold)
     $b = New-Object System.Windows.Forms.Button
-    $b.Text = $Text
+    $b.Text = $Text
+    $b.UseMnemonic = $false
     $b.Location = New-Object System.Drawing.Point($X, $Y)
     $b.Size = New-Object System.Drawing.Size($W, $H)
     $b.FlatStyle = 'Flat'
@@ -5465,7 +5467,8 @@ function New-ToolPanel {
     $p.BackColor = $Script:Clr.Window
     $panelContainer.Controls.Add($p)
     $l = New-Object System.Windows.Forms.Label
-    $l.Text = $Title
+    $l.Text = $Title
+    $l.UseMnemonic = $false
     $l.Font = New-Object System.Drawing.Font("Segoe UI", 14, [System.Drawing.FontStyle]::Bold)
     $l.ForeColor = $Script:Clr.Text
     $l.Location = New-Object System.Drawing.Point(18, 10)
@@ -5473,7 +5476,8 @@ function New-ToolPanel {
     $p.Controls.Add($l)
     if ($Subtitle) {
         $s = New-Object System.Windows.Forms.Label
-        $s.Text = $Subtitle
+        $s.Text = $Subtitle
+        $s.UseMnemonic = $false
         $s.Font = New-Object System.Drawing.Font("Segoe UI", 9)
         $s.ForeColor = $Script:Clr.SubText
         $s.Location = New-Object System.Drawing.Point(20, 38)
@@ -5487,7 +5491,8 @@ function Add-Section {
     param($Panel, [string]$Text, [ref]$Y)
     $Y.Value += 8
     $l = New-Object System.Windows.Forms.Label
-    $l.Text = $Text.ToUpper()
+    $l.Text = $Text.ToUpper()
+    $l.UseMnemonic = $false
     $l.Font = New-Object System.Drawing.Font("Segoe UI", 8.5, [System.Drawing.FontStyle]::Bold)
     $l.ForeColor = $Script:Clr.Section
     $l.Location = New-Object System.Drawing.Point(20, $Y.Value)
@@ -5518,7 +5523,8 @@ function Add-ButtonRow {
 function New-UiLabel {
     param($Parent, [string]$Text, [int]$X, [int]$Y, [int]$W = 0, [int]$H = 0, $Color = $null, [float]$Size = 9, [switch]$Bold)
     $l = New-Object System.Windows.Forms.Label
-    $l.Text = $Text
+    $l.Text = $Text
+    $l.UseMnemonic = $false
     $style = if ($Bold) { [System.Drawing.FontStyle]::Bold } else { [System.Drawing.FontStyle]::Regular }
     $l.Font = New-Object System.Drawing.Font("Segoe UI", $Size, $style)
     $l.ForeColor = if ($Color) { $Color } else { $Script:Clr.Text }
@@ -5541,7 +5547,7 @@ function Set-ITToolkitBusyIndicator {
 
 # ---------- window ----------
 $form = New-Object System.Windows.Forms.Form
-$form.Text = "Enterprise IT Master Toolkit v4.1"
+$form.Text = "Enterprise IT Master Toolkit v4.1.1"
 $form.Size = New-Object System.Drawing.Size(1000, 820)
 $form.StartPosition = "CenterScreen"
 $form.BackColor = $Script:Clr.Window
@@ -5581,7 +5587,7 @@ $sidebar.BackColor = $Script:Clr.Sidebar
 $form.Controls.Add($sidebar)
 
 [void](New-UiLabel $sidebar 'IT TOOLKIT' 20 16 -Size 15 -Bold)
-[void](New-UiLabel $sidebar 'Master Toolkit v4.1' 22 46 -Color $Script:Clr.SubText -Size 8.5)
+[void](New-UiLabel $sidebar 'Master Toolkit v4.1.1' 22 46 -Color $Script:Clr.SubText -Size 8.5)
 
 # ---------- header strip (device info + busy indicator) ----------
 $header = New-Object System.Windows.Forms.Panel
@@ -5990,7 +5996,8 @@ foreach ($g in $navGroups) {
     $navY += 20
     foreach ($item in $g.Items) {
         $nb = New-Object System.Windows.Forms.Button
-        $nb.Text = $item[0]
+        $nb.Text = $item[0]
+        $nb.UseMnemonic = $false
         $nb.Size = New-Object System.Drawing.Size(220, 34)
         $nb.Location = New-Object System.Drawing.Point(0, $navY)
         $nb.FlatStyle = 'Flat'
@@ -6038,7 +6045,8 @@ $logPanel.Controls.Add($logTop)
 function New-LogToolButton {
     param([string]$Text, [int]$X, [scriptblock]$OnClick, [string]$Tip)
     $b = New-Object System.Windows.Forms.Button
-    $b.Text = $Text
+    $b.Text = $Text
+    $b.UseMnemonic = $false
     $b.Location = New-Object System.Drawing.Point($X, 5)
     $b.Size = New-Object System.Drawing.Size(92, 24)
     $b.FlatStyle = 'Flat'
@@ -6125,7 +6133,7 @@ $form.Add_Shown({
     }
 })
 
-Write-GuiLog "Master Toolkit v4.1 online. USB can be removed. Temp files clean up when you close this window." "Cyan"
+Write-GuiLog "Master Toolkit v4.1.1 online. USB can be removed. Temp files clean up when you close this window." "Cyan"
 # Application.Run = proper main window: minimizes to the taskbar and restores normally.
 # (ShowDialog made it a dialog owned by the console, which minimized to a stub that wouldn't come back.)
 [System.Windows.Forms.Application]::Run($form)

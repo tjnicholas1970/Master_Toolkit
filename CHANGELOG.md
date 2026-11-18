@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.1.1
+- Fixed "&" disappearing from menu, section and button labels (for example, "Users & Apps"). WinForms was treating it as a keyboard-shortcut marker; `UseMnemonic` is now turned off on toolkit labels and buttons.
+
 ## 4.1
 - Every prompt is now attached to the toolkit window and stays on top, so OOBE can't hide it. Prompts can only be closed with their own buttons, reopen if something else closes them, and log how they were closed.
 - OOBE Prep always asks for the Group Tag, filled in with the tag already on file. If the hash step fails, you can choose Retry, Skip or Stop.
